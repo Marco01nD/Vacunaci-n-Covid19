@@ -1,0 +1,637 @@
+/* Basic styling */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --azul-primario: #0080ff;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+nav {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+a {
+  text-decoration: none;
+}
+.menu,
+.submenu {
+  list-style-type: none;
+}
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 7.5px 10px 7.5px 0;
+}
+
+.logo a {
+  color: blue;
+}
+
+.item {
+  padding: 15px;
+}
+.item a {
+  color: #000;
+  font-weight: bold;
+}
+
+.item.button {
+  padding: 9px 5px;
+}
+.item:not(.button) a:hover,
+.item a:hover::after {
+  color: royalblue;
+}
+/* Mobile menu */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu li a {
+  display: block;
+  padding: 15px 5px;
+}
+.menu li.subitem a {
+  padding: 15px;
+}
+.toggle {
+  order: 1;
+  font-size: 20px;
+}
+.item.button {
+  order: 2;
+}
+.item {
+  order: 3;
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+.active .item {
+  display: block;
+}
+.button.secondary {
+  /* divider between buttons and menu links */
+  border-bottom: 1px #444 solid;
+}
+/* Submenu up from mobile screens */
+.submenu {
+  display: none;
+}
+.submenu-active .submenu {
+  display: block;
+}
+.has-submenu i {
+  font-size: 12px;
+}
+.has-submenu > a::after {
+  font-family: "Font Awesome 5 Free";
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 900;
+  content: "\f078";
+  color: #000;
+  padding-left: 5px;
+}
+.subitem a {
+  padding: 10px 15px;
+}
+.submenu-active {
+  background-color: #fafafa;
+  border-radius: 3px;
+}
+
+/* Tablet menu */
+@media all and (min-width: 700px) {
+  .menu {
+    justify-content: center;
+  }
+  .logo {
+    flex: 1;
+  }
+  .item.button {
+    width: auto;
+    order: 1;
+    display: block;
+  }
+  .toggle {
+    flex: 1;
+    text-align: right;
+    order: 2;
+  }
+  /* Button up from tablet screen */
+  .menu li.button a {
+    padding: 10px 15px;
+    margin: 5px 0;
+  }
+
+  .button a {
+    background: #0d2be8;
+    border: 1px solid;
+    color: #ffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+  }
+  .button.secondary {
+    border: 0;
+  }
+  .button.secondary a {
+    background: transparent;
+    border: 1px #0080ff solid;
+  }
+  .button a:hover {
+    text-decoration: none;
+  }
+  .button:not(.secondary) a:hover {
+    background: royalblue;
+    border-color: darkblue;
+  }
+}
+/* Desktop menu */
+@media all and (min-width: 960px) {
+  .menu {
+    align-items: center;
+    flex-wrap: nowrap;
+    background: none;
+  }
+  .logo {
+    order: 0;
+  }
+  .item {
+    order: 1;
+    position: relative;
+    display: block;
+    width: auto;
+  }
+  .button {
+    order: 2;
+  }
+  .submenu-active .submenu {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 68px;
+    background: #fafafa;
+  }
+  .toggle {
+    display: none;
+  }
+  .submenu-active {
+    border-radius: 0;
+  }
+}
+
+/* Primera parte*/
+
+.contenedor {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+.contenedor div {
+  width: 50%;
+  height: auto;
+}
+
+.contenedorimg {
+  background: royalblue;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: -1;
+}
+
+.contenedorimg img {
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+}
+
+.contenedordesc {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20px;
+  margin-top: 9%;
+}
+
+.contenedordesc h1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 3em;
+  color: #214073;
+}
+
+.descripcionvirus {
+  font-weight: bold;
+  margin: 20px 0;
+  color: #6e6e6e;
+}
+
+.iconosprincipales {
+  font-weight: bold;
+  color: #214073;
+}
+
+.iconosprincipales i {
+  color: #ffd012;
+  margin-right: 10px;
+  background-color: #fff9e0;
+  padding: 7px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.iconosprincipales span:nth-child(1) {
+  margin-right: 25px;
+}
+
+.datosvacuna {
+  font-family: "Open Sans", sans-serif;
+  margin-top: 10%;
+  color: #214073;
+  font-weight: bold;
+}
+
+.datosvacuna i {
+  font-size: 16px;
+  color: rgb(33, 64, 115);
+  margin-right: 10px;
+  background-color: #e9f0fd;
+  padding: 7px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.flotante {
+  position: absolute;
+  width: 50%;
+  height: 100px;
+  background-color: purple;
+  bottom: 15px;
+  left: 10%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: rgba(33, 64, 115, 0.2) 0px 7px 29px 0px;
+}
+
+.flotante div {
+  flex-basis: 25%;
+}
+
+.contentbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titcont {
+  margin: 20px 0 0 20px;
+  color: #6e6e6e;
+  font-weight: bold;
+}
+
+.titcont i {
+  font-size: 10px;
+  color: #214073;
+  margin-right: 10px;
+  background-color: #e9f0fd;
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.titdesc {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  color: #274577;
+}
+
+.btnenviar {
+  padding: 10px 15px;
+  margin: 5px 0;
+  background: #0d2be8;
+  border: 1px solid;
+  color: #ffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.logosempresas {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 15px 0;
+}
+
+.logosempresas img {
+  width: 20%;
+  filter: grayscale(100%) opacity(50%);
+}
+
+.importvacuna {
+  height: 80vh;
+  padding: 60px 60px 0 60px;
+}
+
+.importvacuna h1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 3em;
+  color: #214073;
+}
+
+.importvacuna > p {
+  width: 50%;
+}
+
+.importcontent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.importbox {
+  flex-basis: 20%;
+  border: 2px solid #f3f3f3;
+  padding: 35px 20px;
+  border-radius: 10px;
+}
+
+.importbox:hover {
+  box-shadow: rgba(33, 64, 115, 0.2) 0px 7px 29px 0px;
+}
+
+.importbox:hover i {
+  box-shadow: rgba(33, 64, 115, 0.2) 0px 7px 29px 0px;
+}
+
+.importbox i {
+  font-size: 20px;
+  color: #0d2be8;
+  margin-right: 10px;
+  background-color: #e9f0fd;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.importtitle {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #214073;
+}
+
+.importtext {
+  font-weight: bold;
+  color: #6e6e6e;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.preparacionvacuna {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.prepimg {
+  width: 45%;
+  background: royalblue;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.prepimg div {
+  height: 30%;
+  background-color: #ffff;
+}
+
+.prepimg img {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+}
+
+.prepdesc {
+  width: 55%;
+  padding: 35px;
+}
+
+.prepdesc h1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 3em;
+  color: #214073;
+}
+
+.prepdesc > p {
+  font-weight: bold;
+  color: #6e6e6e;
+  font-size: 1em;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.datospreparacion {
+  width: 80%;
+}
+
+.datospreparacion p {
+  border: 1px solid #f3f3f3;
+  padding: 10px;
+  font-weight: bold;
+  color: #214073;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.datospreparacion p i:nth-child(1) {
+  font-size: 20px;
+  color: #0d2be8;
+  margin-right: 10px;
+  background-color: #e9f0fd;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.datospreparacion p i:nth-child(2) {
+  position: absolute;
+  right: 5%;
+  top: 40%;
+}
+
+.prepimg2 {
+  width: 45%;
+  background: royalblue;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.prepimg2 div {
+  height: 30%;
+  background-color: #ffff;
+}
+.prepimg2 img {
+  position: absolute;
+  width: 60%;
+  top: 10%;
+  left: 20%;
+  margin: auto;
+}
+
+.contactos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactoitems {
+  flex-basis: 40%;
+  border: 1px solid #f3f3f3;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.contactone {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+  justify-content: center;
+}
+
+.contactone div i {
+  font-size: 20px;
+  color: #0d2be8;
+  margin-right: 10px;
+  background-color: #e9f0fd;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.contactone div p:nth-child(1) {
+  font-weight: bold;
+  color: #214073;
+}
+
+.contacttwo {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.btncontact1 {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  background: #e9f0fd;
+  border: 1px solid;
+  color: #0d2be8;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 60%;
+}
+
+.btncontact {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  background: #0d2be8;
+  border: 1px solid;
+  color: #ffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 60%;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  background: #e9f0fd;
+  margin-top: 100px;
+}
+
+footer .principal {
+  flex-basis: 50%;
+  margin-top: 60px;
+}
+
+.firstfooter {
+  width: 30%;
+  margin-left: 70px;
+}
+
+.firstfooter h3 {
+  color: #0d2be8;
+  font-weight: bold;
+}
+
+.firstfooter p {
+  font-weight: bold;
+  color: #6e6e6e;
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+
+.adicionales {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.secciones p:nth-child(1) {
+  font-weight: bold;
+  color: #214073;
+}
+
+.secciones p {
+  margin: 10px 0;
+}
+
+.condiciones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #e9f0fd;
+  padding: 40px 0;
+  font-weight: bold;
+  color: #6e6e6e;
+}
+
+.classnext {
+  font-weight: bold;
+  color: #6e6e6e;
+}
